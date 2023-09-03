@@ -53,8 +53,9 @@ class Birthday(Field):
             print("Invalid birthday format. Use 'YYYY-MM-DD'.")
         else:
             super().set_value(value)
-            print('Birthday added sucssesfule')
+            print('Birthday added successfully')
     @staticmethod
+    
     def is_valid_birthday(birthday):
         if not re.match(r'\d{4}-\d{2}-\d{2}', birthday):
             return False
@@ -211,18 +212,20 @@ def main():
                 print("Please provide both name and phone number.")
 
         elif command == "show all":
-            print('____________________________________________________________________________________')
+            print('------------------------------------------------------------------------------------------------')
             if address_book.data:
                 for page, records in enumerate(address_book.iterator(), 1):
                     print(f"Page {page}:")
                     for record in records:
-                        ("------------------------------------------------------------------")
-                        print(f"Name: {record.name.get_value()}")
+                        print ("------------------------------------------------------------------------------------------------")
+                        print (f"Name: {record.name.get_value()}")
                         for phone in record.phones:
                             print(f"Phone: {phone.get_value()}")
+                    if not record.has_birthday():
+                        print ("------------------------------------------------------------------------------------------------")
                     if record.has_birthday():
-                        print(f"Birthday: {record.birthday.get_value()}")
-                    print("------------------------------------------------------------------")
+                        print (f"Birthday: {record.birthday.get_value()}")
+                    print ("------------------------------------------------------------------------------------------------")
             else:
                 print("No contacts saved.")
         #нові команди для ДЗ 12  ________________________________________________________
